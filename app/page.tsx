@@ -1,4 +1,5 @@
 import CardNav from '@/components/navbar/CardNav';
+import { Footer } from '@/components/footer/footer';
 
 const navItems = [
   {
@@ -34,7 +35,6 @@ const navItems = [
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-gray-100">
-      {/* CardNav harus berada di dalam elemen yang punya `position: relative` */}
       <CardNav
         logo="/images/maneviz.png" 
         logoAlt="MANEVIZ WEAR"
@@ -47,10 +47,12 @@ export default function Home() {
         theme="light"
       />
 
-      {/* Konten halaman kamu di sini */}
+      {/* Konten halaman */}
       <div className="flex items-center justify-center min-h-screen">
         <h1 className="text-4xl font-bold text-gray-800">MANEVIZ WEAR</h1>
       </div>
+
+      <Footer />
     </main>
   );
 }
