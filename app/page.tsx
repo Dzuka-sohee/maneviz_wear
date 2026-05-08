@@ -112,7 +112,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-gray-100">
       <CardNav
-        logo="/images/maneviz.png"
+        logo="/images/maneviz-new.png"
         logoAlt="MANEVIZ WEAR"
         items={navItems}
         baseColor="#fff"

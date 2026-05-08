@@ -95,9 +95,9 @@ export function Footer() {
 			<div className="grid w-full items-start gap-8 py-6 md:py-8 lg:grid-cols-3 lg:gap-8">
 				<AnimatedContainer className="flex flex-col gap-2 self-start">
 					<img
-						src="/images/maneviz.png"
+						src="/images/maneviz-new.png"
 						alt="Maneviz Logo"
-						className="h-20 w-auto object-contain object-left block -translate-y-4"
+						className="h-12 w-auto object-contain object-left block -translate-y-1"
 					/>
 					<p className="text-gray-800 text-sm">
 						Built For The Grind, Styled by Chaos.
