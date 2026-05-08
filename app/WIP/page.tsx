@@ -39,7 +39,7 @@ export default function UnderConstruction() {
   return (
     <main className="relative min-h-screen bg-white">
       <CardNav
-        logo="/images/maneviz.png"
+        logo="/images/maneviz-new-white.png"
         logoAlt="MANEVIZ WEAR"
         items={navItems}
         baseColor="#fff"
