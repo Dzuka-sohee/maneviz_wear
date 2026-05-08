@@ -19,28 +19,28 @@ const footerLinks: FooterSection[] = [
 	{
 		label: "Product",
 		links: [
-			{ title: "Features", href: "/dikembangkan" },
-			{ title: "Pricing", href: "/dikembangkan" },
-			{ title: "Testimonials", href: "/dikembangkan" },
-			{ title: "Integration", href: "/dikembangkan" },
+			{ title: "Features", href: "/WIP" },
+			{ title: "Pricing", href: "/WIP" },
+			{ title: "Testimonials", href: "/WIP" },
+			{ title: "Integration", href: "/WIP" },
 		],
 	},
 	{
 		label: "Company",
 		links: [
-			{ title: "FAQs", href: "/dikembangkan" },
-			{ title: "About Us", href: "/dikembangkan" },
-			{ title: "Privacy Policy", href: "/dikembangkan" },
-			{ title: "T&S", href: "/dikembangkan" },
+			{ title: "FAQs", href: "/WIP" },
+			{ title: "About Us", href: "/WIP" },
+			{ title: "Privacy Policy", href: "/WIP" },
+			{ title: "T&S", href: "/WIP" },
 		],
 	},
 	{
 		label: "Resources",
 		links: [
-			{ title: "Blog", href: "/dikembangkan" },
-			{ title: "Changelog", href: "/dikembangkan" },
-			{ title: "Brand", href: "/dikembangkan" },
-			{ title: "Help", href: "/dikembangkan" },
+			{ title: "Blog", href: "/WIP" },
+			{ title: "Changelog", href: "/WIP" },
+			{ title: "Brand", href: "/WIP" },
+			{ title: "Help", href: "/WIP" },
 		],
 	},
 	{
@@ -131,7 +131,7 @@ export function Footer() {
 			<div className="h-px w-full bg-linear-to-r via-border" />
 			<div className="flex w-full items-center justify-center py-4">
 				<p className="text-gray-800 text-sm">
-					&copy; {new Date().getFullYear()} efferd, All rights reserved
+					&copy; {new Date().getFullYear()} Maneviz Wear, All rights reserved
 				</p>
 			</div>
 		</footer>
