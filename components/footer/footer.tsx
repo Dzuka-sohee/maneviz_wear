@@ -19,28 +19,28 @@ const footerLinks: FooterSection[] = [
 	{
 		label: "Product",
 		links: [
-			{ title: "Features", href: "#" },
-			{ title: "Pricing", href: "#" },
-			{ title: "Testimonials", href: "#" },
-			{ title: "Integration", href: "#" },
+			{ title: "Features", href: "/dikembangkan" },
+			{ title: "Pricing", href: "/dikembangkan" },
+			{ title: "Testimonials", href: "/dikembangkan" },
+			{ title: "Integration", href: "/dikembangkan" },
 		],
 	},
 	{
 		label: "Company",
 		links: [
-			{ title: "FAQs", href: "#" },
-			{ title: "About Us", href: "#" },
-			{ title: "Privacy Policy", href: "#" },
-			{ title: "T&S", href: "#" },
+			{ title: "FAQs", href: "/dikembangkan" },
+			{ title: "About Us", href: "/dikembangkan" },
+			{ title: "Privacy Policy", href: "/dikembangkan" },
+			{ title: "T&S", href: "/dikembangkan" },
 		],
 	},
 	{
 		label: "Resources",
 		links: [
-			{ title: "Blog", href: "#" },
-			{ title: "Changelog", href: "#" },
-			{ title: "Brand", href: "#" },
-			{ title: "Help", href: "#" },
+			{ title: "Blog", href: "/dikembangkan" },
+			{ title: "Changelog", href: "/dikembangkan" },
+			{ title: "Brand", href: "/dikembangkan" },
+			{ title: "Help", href: "/dikembangkan" },
 		],
 	},
 	{
