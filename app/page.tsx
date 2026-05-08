@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import CardNav from "@/components/navbar/CardNav";
 import { Footer } from "@/components/footer/footer";
+import { supabase } from "@/lib/supabase";
 
 const navItems = [
   {
@@ -35,8 +36,8 @@ const navItems = [
   },
 ];
 
-// Ganti tanggal target sesuai kebutuhan
-const TARGET_DATE = new Date("2026-06-06T00:00:00");
+// Fallback jika tidak ada data dari Supabase
+const FALLBACK_DATE = new Date("2026-06-06T00:00:00");
 
 function useCountdown(target: Date) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -81,12 +82,32 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
 
 function Separator() {
   return (
-    <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white/20 mb-5 sm:mb-6 md:mb-7 select-none">:</span>
+    <span className="text-2xl sm:text-3xl md:text-4xl font-black text-white/20 mb-5 sm:mb-6 md:mb-7 select-none">
+      :
+    </span>
   );
 }
 
 export default function Home() {
-  const { days, hours, minutes, seconds } = useCountdown(TARGET_DATE);
+  const [targetDate, setTargetDate] = useState<Date>(FALLBACK_DATE);
+
+  // Fetch active countdown dari Supabase
+  useEffect(() => {
+    const fetchActive = async () => {
+      const { data } = await supabase
+        .from("countdowns")
+        .select("target_date")
+        .eq("is_active", true)
+        .single();
+
+      if (data?.target_date) {
+        setTargetDate(new Date(data.target_date));
+      }
+    };
+    fetchActive();
+  }, []);
+
+  const { days, hours, minutes, seconds } = useCountdown(targetDate);
 
   return (
     <main className="relative min-h-screen bg-gray-100">
