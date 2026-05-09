@@ -174,7 +174,7 @@ const CardNav = ({
           {/* Logo */}
           <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
             {logo ? (
-              <img src={logo} alt={logoAlt} className="logo h-[45px] w-auto object-contain" />
+              <img src={logo} alt={logoAlt} className="logo h-[30px] w-auto object-contain" />
             ) : (
               <span className="font-bold text-lg tracking-tight">{logoAlt}</span>
             )}

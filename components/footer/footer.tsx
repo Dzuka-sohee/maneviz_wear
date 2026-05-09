@@ -97,7 +97,7 @@ export function Footer() {
 					<img
 						src="/images/maneviz-new.png"
 						alt="Maneviz Logo"
-						className="h-12 w-auto object-contain object-left block -translate-y-1"
+						className="h-10 w-auto object-contain object-left block -translate-y-0"
 					/>
 					<p className="text-gray-800 text-sm">
 						Built For The Grind, Styled by Chaos.
