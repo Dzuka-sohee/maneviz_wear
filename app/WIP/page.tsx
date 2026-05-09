@@ -42,12 +42,12 @@ export default function UnderConstruction() {
         logo="/images/maneviz-new-white.png"
         logoAlt="MANEVIZ WEAR"
         items={navItems}
-        baseColor="#fff"
-        menuColor="#000"
-        buttonBgColor="#111"
-        buttonTextColor="#fff"
+        baseColor="#111"
+        menuColor="#fff"
+        buttonBgColor="#fff"
+        buttonTextColor="#111"
         ease="power3.out"
-        theme="light"
+        theme="dark"
       />
 
       {/* Hero */}

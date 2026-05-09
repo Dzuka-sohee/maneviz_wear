@@ -13,51 +13,73 @@ const navItems = [
 export default function CountdownLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [checking, setChecking] = useState(true);
+  const [loggingOut, setLoggingOut] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {
       const { data } = await supabase.auth.getSession();
       if (!data.session) {
-        window.location.replace("/Login");
+        window.location.replace("/Login-Admin-Icikiwir");
         return;
       }
       setChecking(false);
     };
     checkAuth();
+
+    const { data: listener } = supabase.auth.onAuthStateChange((event) => {
+      if (event === "SIGNED_OUT") {
+        window.location.replace("/Login-Admin-Icikiwir");
+      }
+    });
+
+    return () => { listener.subscription.unsubscribe(); };
   }, []);
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    window.location.replace("/Login");
+    setLoggingOut(true);
+    await supabase.auth.signOut({ scope: "local" });
+
+    const keysToRemove: string[] = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && (key.startsWith("sb-") || key.includes("supabase"))) keysToRemove.push(key);
+    }
+    keysToRemove.forEach((key) => localStorage.removeItem(key));
+
+    window.location.replace("/Login-Admin-Icikiwir");
   };
 
   if (checking) {
     return (
-      <div className="min-h-screen bg-[#0d0b12] flex items-center justify-center">
-        <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/30">
-          Memverifikasi sesi...
-        </p>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="flex items-center gap-3">
+          <span className="w-1.5 h-1.5 rounded-full bg-black/20 animate-pulse" />
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-black/30">
+            Memverifikasi sesi...
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="relative min-h-screen bg-[#0d0b12] flex overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_50%,rgba(47,41,58,0.5),transparent)] pointer-events-none" />
+    <div className="relative min-h-screen bg-white flex overflow-hidden">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
       {/* Sidebar */}
-      <aside className="relative z-10 w-56 min-h-screen border-r border-white/10 flex flex-col py-8 px-5 shrink-0">
+      <aside className="relative z-10 w-56 min-h-screen border-r border-black/8 flex flex-col py-8 px-5 shrink-0 bg-white/80 backdrop-blur-sm">
         <div className="mb-10">
-          <p className="font-mono text-[8px] tracking-[0.35em] text-white/30 uppercase mb-1">
+          <p className="font-mono text-[8px] tracking-[0.35em] text-black/30 uppercase mb-1">
             Admin Panel
           </p>
-          <span className="text-sm font-black tracking-widest text-[#f0ece4]">
+          <span className="text-sm font-black tracking-widest text-black">
             MANEVIZ WEAR
           </span>
         </div>
 
         <nav className="flex flex-col gap-1 flex-1">
-          <p className="font-mono text-[8px] tracking-[0.25em] uppercase text-white/20 mb-2">
+          <p className="font-mono text-[8px] tracking-[0.25em] uppercase text-black/25 mb-2">
             Countdown
           </p>
           {navItems.map((item) => {
@@ -68,8 +90,8 @@ export default function CountdownLayout({ children }: { children: React.ReactNod
                 href={item.href}
                 className={`font-mono text-[10px] tracking-[0.15em] uppercase px-3 py-2.5 transition-colors ${
                   active
-                    ? "bg-white/10 text-[#f0ece4]"
-                    : "text-white/40 hover:text-white/70 hover:bg-white/5"
+                    ? "bg-black text-white"
+                    : "text-black/40 hover:text-black hover:bg-black/5"
                 }`}
               >
                 {item.label}
@@ -80,9 +102,10 @@ export default function CountdownLayout({ children }: { children: React.ReactNod
 
         <button
           onClick={handleLogout}
-          className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/30 hover:text-red-400/70 transition-colors text-left mt-4"
+          disabled={loggingOut}
+          className="font-mono text-[9px] tracking-[0.2em] uppercase text-black/30 hover:text-red-500 transition-colors text-left mt-4 disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          Keluar
+          {loggingOut ? "Keluar..." : "Keluar"}
         </button>
       </aside>
 

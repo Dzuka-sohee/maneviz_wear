@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 export default function LoginPage() {
@@ -8,15 +8,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
-  // Kalau sudah punya session aktif, langsung redirect
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) {
-        window.location.replace("/Countdown/read");
-      }
-    });
-  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,23 +29,28 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-[#0d0b12] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(47,41,58,0.6),transparent)]" />
+    <main className="relative min-h-screen bg-white flex items-center justify-center overflow-hidden">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
+
+      {/* Corner accents */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(ellipse_at_top_right,rgba(0,0,0,0.06),transparent_70%)]" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[radial-gradient(ellipse_at_bottom_left,rgba(0,0,0,0.06),transparent_70%)]" />
 
       <div className="relative z-10 w-full max-w-sm px-6">
         <div className="flex flex-col items-center mb-10">
-          <p className="font-mono text-[9px] tracking-[0.4em] text-white/30 uppercase mb-3">
+          <p className="font-mono text-[9px] tracking-[0.4em] text-black/30 uppercase mb-3">
             Admin Panel
           </p>
-          <h1 className="text-3xl font-black tracking-widest text-[#f0ece4]">
+          <h1 className="text-3xl font-black tracking-widest text-black">
             MANEVIZ WEAR
           </h1>
-          <div className="w-8 h-px bg-white/20 mt-4" />
+          <div className="w-8 h-px bg-black/15 mt-4" />
         </div>
 
         <form onSubmit={handleLogin} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
-            <label className="font-mono text-[9px] tracking-[0.25em] uppercase text-white/30">
+            <label className="font-mono text-[9px] tracking-[0.25em] uppercase text-black/35">
               Email
             </label>
             <input
@@ -63,12 +59,12 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="admin@manevizwear.com"
-              className="w-full bg-[#111018] border border-white/10 text-[#f0ece4] text-sm px-4 py-3 outline-none focus:border-white/30 placeholder:text-white/20 font-mono transition-colors"
+              className="w-full bg-white border border-black/15 text-black text-sm px-4 py-3 outline-none focus:border-black/50 placeholder:text-black/20 font-mono transition-colors"
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="font-mono text-[9px] tracking-[0.25em] uppercase text-white/30">
+            <label className="font-mono text-[9px] tracking-[0.25em] uppercase text-black/35">
               Password
             </label>
             <input
@@ -77,12 +73,12 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full bg-[#111018] border border-white/10 text-[#f0ece4] text-sm px-4 py-3 outline-none focus:border-white/30 placeholder:text-white/20 font-mono transition-colors"
+              className="w-full bg-white border border-black/15 text-black text-sm px-4 py-3 outline-none focus:border-black/50 placeholder:text-black/20 font-mono transition-colors"
             />
           </div>
 
           {error && (
-            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-red-400/80 text-center">
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-red-500 text-center">
               {error}
             </p>
           )}
@@ -90,13 +86,13 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="mt-2 w-full bg-[#f0ece4] text-[#0d0b12] font-black text-xs tracking-[0.2em] uppercase py-3.5 hover:bg-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="group mt-2 w-full flex items-center justify-center gap-2 bg-black text-white font-mono text-xs tracking-[0.2em] uppercase py-3.5 hover:bg-white hover:text-black border border-black transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {loading ? "Masuk..." : "Masuk"}
           </button>
         </form>
 
-        <p className="text-center font-mono text-[8px] tracking-[0.2em] text-white/20 uppercase mt-8">
+        <p className="text-center font-mono text-[8px] tracking-[0.2em] text-black/25 uppercase mt-8">
           Maneviz Wear © {new Date().getFullYear()}
         </p>
       </div>

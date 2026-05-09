@@ -18,7 +18,6 @@ export default function CreatePage() {
     setLoading(true);
     setError("");
 
-    // Jika set aktif, nonaktifkan yang lain dulu
     if (isActive) {
       await supabase.from("countdowns").update({ is_active: false }).neq("id", "");
     }
@@ -42,19 +41,19 @@ export default function CreatePage() {
     <div className="p-8 md:p-12 max-w-lg">
       {/* Header */}
       <div className="mb-10">
-        <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-white/30 mb-2">
+        <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-black/30 mb-2">
           Countdown Management
         </p>
-        <h1 className="text-3xl md:text-4xl font-black tracking-widest text-[#f0ece4]">
+        <h1 className="text-3xl md:text-4xl font-black tracking-widest text-black leading-none">
           TAMBAH BARU
         </h1>
-        <div className="w-8 h-px bg-white/20 mt-4" />
+        <div className="w-8 h-px bg-black/15 mt-4" />
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         {/* Label */}
         <div className="flex flex-col gap-1.5">
-          <label className="font-mono text-[9px] tracking-[0.25em] uppercase text-white/30">
+          <label className="font-mono text-[9px] tracking-[0.25em] uppercase text-black/35">
             Nama / Label
           </label>
           <input
@@ -63,13 +62,13 @@ export default function CreatePage() {
             value={label}
             onChange={(e) => setLabel(e.target.value)}
             placeholder="Grand Launch"
-            className="w-full bg-[#111018] border border-white/10 text-[#f0ece4] text-sm px-4 py-3 outline-none focus:border-white/30 placeholder:text-white/20 font-mono transition-colors"
+            className="w-full bg-white border border-black/15 text-black text-sm px-4 py-3 outline-none focus:border-black/50 placeholder:text-black/20 font-mono transition-colors"
           />
         </div>
 
         {/* Target Date */}
         <div className="flex flex-col gap-1.5">
-          <label className="font-mono text-[9px] tracking-[0.25em] uppercase text-white/30">
+          <label className="font-mono text-[9px] tracking-[0.25em] uppercase text-black/35">
             Tanggal & Waktu Target
           </label>
           <input
@@ -77,32 +76,32 @@ export default function CreatePage() {
             required
             value={targetDate}
             onChange={(e) => setTargetDate(e.target.value)}
-            className="w-full bg-[#111018] border border-white/10 text-[#f0ece4] text-sm px-4 py-3 outline-none focus:border-white/30 font-mono transition-colors [color-scheme:dark]"
+            className="w-full bg-white border border-black/15 text-black text-sm px-4 py-3 outline-none focus:border-black/50 font-mono transition-colors [color-scheme:light]"
           />
         </div>
 
-        {/* Is Active */}
+        {/* Is Active toggle */}
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setIsActive(!isActive)}
             className={`w-10 h-5 border transition-colors relative shrink-0 ${
-              isActive ? "bg-[#f0ece4] border-[#f0ece4]" : "bg-transparent border-white/20"
+              isActive ? "bg-black border-black" : "bg-transparent border-black/20"
             }`}
           >
             <span
               className={`absolute top-0.5 w-3.5 h-3.5 transition-all ${
-                isActive ? "left-[calc(100%-18px)] bg-[#0d0b12]" : "left-0.5 bg-white/30"
+                isActive ? "left-[calc(100%-18px)] bg-white" : "left-0.5 bg-black/20"
               }`}
             />
           </button>
-          <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/40">
+          <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-black/40">
             Jadikan countdown aktif di halaman utama
           </span>
         </div>
 
         {error && (
-          <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-red-400/80">
+          <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-red-500">
             {error}
           </p>
         )}
@@ -112,13 +111,13 @@ export default function CreatePage() {
           <button
             type="submit"
             disabled={loading}
-            className="bg-[#f0ece4] text-[#0d0b12] font-black text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="group flex items-center gap-2 bg-black text-white font-mono text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-white hover:text-black border border-black transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {loading ? "Menyimpan..." : "Simpan"}
           </button>
           <Link
             href="/Countdown/read"
-            className="font-mono text-[10px] tracking-[0.2em] uppercase px-6 py-3 border border-white/10 text-white/40 hover:border-white/30 hover:text-white/60 transition-colors"
+            className="font-mono text-[10px] tracking-[0.2em] uppercase px-6 py-3 border border-black/15 text-black/40 hover:border-black/40 hover:text-black transition-colors"
           >
             Batal
           </Link>
