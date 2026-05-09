@@ -91,9 +91,9 @@ export const metadata: Metadata = {
   },
 
   // ── Verification (isi setelah daftar Google Search Console) ───────────
-  // verification: {
-  //   google: "GANTI_DENGAN_KODE_VERIFIKASI_GOOGLE",
-  // },
+  verification: {
+    google: "FTWoRiqk6t2X1zoYDwgiIo1f58T7DOjXzKXuV3Sh5I4",
+  },
 };
 
 export default function RootLayout({
