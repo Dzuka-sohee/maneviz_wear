@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
   // ── Basic ──────────────────────────────────────────────────────────────
   title: {
-    default: "Maneviz Wear — Coming Soon",
+    default: "Maneviz Wear",
     template: "%s | Maneviz Wear",
   },
   description:
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     "fashion brand",
     "clothing",
     "streetwear",
-    "coming soon",
     "pre-order",
   ],
+  applicationName: "Maneviz Wear",
   authors: [{ name: "Maneviz Wear", url: BASE_URL }],
   creator: "Maneviz Wear",
   publisher: "Maneviz Wear",
@@ -47,12 +47,12 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: BASE_URL,
     siteName: "Maneviz Wear",
-    title: "Maneviz Wear — Coming Soon",
+    title: "Maneviz Wear",
     description:
       "Maneviz Wear — brand fashion yang sedang dalam persiapan. Pre-order eksklusif segera hadir.",
     images: [
       {
-        url: "/og-image.jpg", // taruh file 1200x630px di /public/og-image.jpg
+        url: "/maneviz-new.png", // taruh file 1200x630px di /public/og-image.jpg
         width: 1200,
         height: 630,
         alt: "Maneviz Wear",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   // ── Twitter / X Card ───────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: "Maneviz Wear — Coming Soon",
+    title: "Maneviz Wear",
     description:
       "Maneviz Wear — brand fashion yang sedang dalam persiapan. Pre-order eksklusif segera hadir.",
     images: ["/og-image.jpg"],
