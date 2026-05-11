@@ -5,20 +5,20 @@ const BASE_URL = "https://maneviz-wear.vercel.app";
 
 // ── Per-page metadata (overrides layout default) ──────────────────────────
 export const metadata: Metadata = {
-  title: "Maneviz Wear — Coming Soon",
+  title: "Maneviz Wear",
   description:
-    "Maneviz Wear hadir segera. Countdown menuju peluncuran brand fashion eksklusif kami. Pre-order sekarang.",
+    "Maneviz Wear hadir segera. Countdown menuju peluncuran produk fashion eksklusif kami. Pre-order sekarang.",
   alternates: {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "Maneviz Wear — Coming Soon",
+    title: "Maneviz Wear",
     description:
-      "Maneviz Wear hadir segera. Countdown menuju peluncuran brand fashion eksklusif kami. Pre-order sekarang.",
+      "Maneviz Wear hadir segera. Countdown menuju peluncuran produk fashion eksklusif kami. Pre-order sekarang.",
     url: BASE_URL,
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/maneviz-new.png", // taruh file 1200x630px di /public/og-image.jpg
         width: 1200,
         height: 630,
         alt: "Maneviz Wear — Coming Soon",
