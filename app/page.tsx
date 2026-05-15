@@ -5,14 +5,14 @@ const BASE_URL = "https://maneviz-wear.vercel.app";
 
 // ── Per-page metadata (overrides layout default) ──────────────────────────
 export const metadata: Metadata = {
-  title: "GOD VALLEY",
+  title: "Maneviz Wear",
   description:
     "GOD VALLEY hadir segera. Countdown menuju peluncuran produk fashion eksklusif kami. Pre-order sekarang.",
   alternates: {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "GOD VALLEY",
+    title: "Maneviz Wear",
     description:
       "GOD VALLEY hadir segera. Countdown menuju peluncuran produk fashion eksklusif kami. Pre-order sekarang.",
     url: BASE_URL,

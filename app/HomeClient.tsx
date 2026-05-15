@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import CardNav from "@/components/navbar/CardNav";
 import { Footer } from "@/components/footer/footer";
 import { supabase } from "@/lib/supabase";
+import { Josefin_Sans } from "next/font/google";
+
+const tenorSans = Josefin_Sans({ weight: "600", subsets: ["latin"] });
 
 const navItems = [
   {
@@ -67,8 +70,8 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
   const display = String(value).padStart(2, "0");
   return (
     <div className="flex flex-col items-center gap-1 sm:gap-2">
-      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 bg-black border border-black/10 flex items-center justify-center">
-        <span className="text-3xl sm:text-4xl md:text-6xl font-black text-white tracking-wider tabular-nums">
+      <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-black border border-black/10 flex items-center justify-center">
+        <span className={`${tenorSans.className} text-2xl sm:text-3xl md:text-4xl text-white tracking-wider tabular-nums`}>
           {display}
         </span>
       </div>
@@ -81,7 +84,7 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
 
 function Separator() {
   return (
-    <span className="text-2xl sm:text-3xl md:text-4xl font-black text-black/20 mb-5 sm:mb-6 md:mb-7 select-none">
+    <span className="text-xl sm:text-2xl md:text-3xl font-black text-black/20 mb-4 sm:mb-5 md:mb-6 select-none">
       :
     </span>
   );
@@ -131,7 +134,7 @@ export default function HomeClient() {
             Coming Soon
           </p>
 
-          <h1 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-widest text-black leading-none mb-2">
+          <h1 className={`${tenorSans.className} text-2xl sm:text-4xl md:text-6xl tracking-widest text-black leading-none mb-2`}>
             GOD VALLEY
           </h1>
 
