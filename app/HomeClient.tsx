@@ -132,7 +132,7 @@ export default function HomeClient() {
           </p>
 
           <h1 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-widest text-black leading-none mb-2">
-            MANEVIZ WEAR
+            GOD VALLEY
           </h1>
 
           <div className="w-8 sm:w-10 h-px bg-black/20 mb-8 sm:mb-10 md:mb-12" />

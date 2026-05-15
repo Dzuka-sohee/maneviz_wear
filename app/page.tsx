@@ -5,23 +5,23 @@ const BASE_URL = "https://maneviz-wear.vercel.app";
 
 // ── Per-page metadata (overrides layout default) ──────────────────────────
 export const metadata: Metadata = {
-  title: "Maneviz Wear",
+  title: "GOD VALLEY",
   description:
-    "Maneviz Wear hadir segera. Countdown menuju peluncuran produk fashion eksklusif kami. Pre-order sekarang.",
+    "GOD VALLEY hadir segera. Countdown menuju peluncuran produk fashion eksklusif kami. Pre-order sekarang.",
   alternates: {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "Maneviz Wear",
+    title: "GOD VALLEY",
     description:
-      "Maneviz Wear hadir segera. Countdown menuju peluncuran produk fashion eksklusif kami. Pre-order sekarang.",
+      "GOD VALLEY hadir segera. Countdown menuju peluncuran produk fashion eksklusif kami. Pre-order sekarang.",
     url: BASE_URL,
     images: [
       {
         url: "/maneviz-new.png", // taruh file 1200x630px di /public/og-image.jpg
         width: 1200,
         height: 630,
-        alt: "Maneviz Wear — Coming Soon",
+        alt: "GOD VALLEY — Coming Soon",
       },
     ],
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Maneviz Wear",
+  name: "GOD VALLEY",
   url: BASE_URL,
   logo: `${BASE_URL}/images/maneviz-new-white.png`,
   contactPoint: {
